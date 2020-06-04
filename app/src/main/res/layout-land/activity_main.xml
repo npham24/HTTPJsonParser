@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#EEEEEE"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        style="?android:attr/progressBarStyle"
+        android:id="@+id/loading"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@+id/llSong"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></androidx.core.widget.ContentLoadingProgressBar>
+
+    <TextView
+        android:id="@+id/tvFailFetch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unable to retrieve JSON"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/llSong"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Title"/>
+
+
+    <TextView
+        android:id="@+id/tvUserName"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/user_name"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnChangeUser"
+        app:layout_constraintBottom_toBottomOf="@+id/btnChangeUser" />
+
+    <EditText
+        android:id="@+id/editUserName"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/user_name"
+
+        android:visibility="invisible"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnChangeUser"
+        app:layout_constraintBottom_toBottomOf="@+id/btnChangeUser"
+
+        android:autofillHints="@string/user_name_hint"
+        android:inputType="text"
+        android:hint="@string/user_name_hint"
+        />
+
+    <Button
+        android:id="@+id/btnChangeUser"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_toEndOf="@+id/tvUserName"
+
+        android:text="@string/change_user"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llSong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/btnChangeUser"
+        android:gravity="center"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivAlbumCover"
+
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:background="#F18484"
+            android:contentDescription="@string/album_desc"
+            android:paddingTop="110dp"
+
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSongTitle"
+
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="10dp"
+
+            android:text="@string/album_title"
+            app:layout_constraintLeft_toRightOf="@+id/ivAlbumCover"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tvSongArtist"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/album_artist"
+            android:ellipsize="end"
+            android:maxLines="1"
+
+            app:layout_constraintTop_toBottomOf="@+id/tvSongTitle"
+            app:layout_constraintLeft_toRightOf="@+id/ivAlbumCover"
+            app:layout_constraintRight_toRightOf="parent"
+            style="@style/Artist"/>
+
+        <TextView
+            android:id="@+id/tvPlayCounter"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="0 plays"
+
+            app:layout_constraintTop_toBottomOf="@+id/tvSongArtist"
+            app:layout_constraintLeft_toRightOf="@+id/ivAlbumCover"
+            app:layout_constraintRight_toRightOf="parent"
+            style="@style/Artist"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/llSong"
+        android:paddingTop="30dp">
+
+        <ImageButton
+            android:id="@+id/btnPrev"
+
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+
+            android:contentDescription="@string/prev_btn_desc"
+            app:srcCompat="@drawable/backward_arrow" />
+
+        <ImageButton
+            android:id="@+id/btnPlay"
+
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="#00FFFFFF"
+            android:layout_gravity="center"
+
+            android:contentDescription="@string/play_btn_desc"
+            app:srcCompat="@drawable/play" />
+
+        <ImageButton
+            android:id="@+id/btnNext"
+
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="#00FFFFFF"
+            android:layout_gravity="center"
+
+            app:layout_constraintTop_toTopOf="@+id/ivAlbum"
+
+            android:contentDescription="@string/next_btn_desc"
+            app:srcCompat="@drawable/forward_arrow"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
