@@ -5,6 +5,7 @@ This application fetches a song list from JSON and displays a random song. The u
 
 
 Screenshot:
+
 Portrait:
 ![Screenshot app Portrait](./portrait.png)
 
